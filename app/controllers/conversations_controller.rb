@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
 
     add_to_conversation unless conversated?
 
-    respond to do |format|
+    respond_to do |format|
       format.js
     end
   end
@@ -13,7 +13,7 @@ class ConversationsController < ApplicationController
 
   def add_to_conversation
     session[:conversations] ||= []
-    session[:conversations] << @conversations.id
+    session[:conversations] << @conversation.id
   end
 
   def conversated?
